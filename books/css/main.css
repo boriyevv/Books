@@ -1,0 +1,62 @@
+body {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)),
+    url("../img/bg-body.jpg");
+}
+
+/* BOOK */
+
+.book__poster {
+  object-fit: cover;
+}
+
+.book__info-item::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.book__info-language::before {
+  background-image: url("../img/icon-globe.svg");
+}
+
+.book__info-country::before {
+  background-image: url("../img/icon-place.svg");
+}
+
+.book__info-year::before {
+  background-image: url("../img/icon-calendar.svg");
+}
+
+
+.book__info-pages::before {
+  background-image: url("../img/icon-pages.svg");
+}
+
+.me-1{
+  width: 24px;
+  height: 24px;
+}
+.book__poster{
+  height: 400px;
+}
+.row2{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+li {
+  list-style: none;
+}
+
+.ulLocal{
+  display: flex;
+  width: 500px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}

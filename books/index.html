@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>letBooks</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="mt-3 mb-5 d-flex">
+      <h1 class="text-center flex-grow-1 text-white">letBooks</h1>
+      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#libraryModal">
+        <img src="./img/icon-bookmark.svg" width="24" height="24" alt="Books collection">
+      </button>
+    </div>
+
+    <!-- https://echo.htmlacademy.ru -->
+
+    <form class="filters row flex-wrap mx-0 mb-3 align-items-start" method="GET" action="">
+      <div class="col-md-2 col-9 ps-0 flex-grow-1 flex-lg-grow-0">
+        <div class="input-group">
+          <input class="searchInp form-control" type="search" name="search" placeholder="Search..." aria-label="Search">
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-5 order-3 order-md-5 order-lg-2 mb-2 mt-2 mb-md-0 mt-lg-0 p-0 pe-md-2">
+        <div class="input-group">
+          <span class="input-group-text">Filter</span>
+          <select class="AzSelect form-select" name="filter">
+            <option value="all">All</option>
+            <option value="a-z">A-Z</option>
+            <option value="pages_count">Pages count</option>
+            <option value="year">Release year</option>
+          </select>
+          <select class="langInp form-select" name="language_filter">
+            <option value="All">Language</option>
+            <option value="Akkadian">Akkadian</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Classical Latin">Classical Latin</option>
+            <option value="Danish">Danish</option>
+            <option value="English">English</option>
+            <option value="French">French</option>
+            <option value="French, English">French, English</option>
+            <option value="German">German</option>
+            <option value="Greek">Greek</option>
+            <option value="Hebrew">Hebrew</option>
+            <option value="Icelandic">Icelandic</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Norwegian">Norwegian</option>
+            <option value="Old Norse">Old Norse</option>
+            <option value="Persian">Persian</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Russian">Russian</option>
+            <option value="Sanskrit">Sanskrit</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Swedish">Swedish</option>
+          </select>
+          <select class="countryInp form-select" name="country_filter">
+            <option value="All">Country</option>
+            <option value="Achaemenid Empire">Achaemenid Empire</option>
+            <option value="Algeria, French Empire">Algeria, French Empire</option>
+            <option value="Argentina">Argentina</option>
+            <option value="Austria">Austria</option>
+            <option value="Brazil">Brazil</option>
+            <option value="China">China</option>
+            <option value="Colombia">Colombia</option>
+            <option value="Czechoslovakia">Czechoslovakia</option>
+            <option value="Denmark">Denmark</option>
+            <option value="Egypt">Egypt</option>
+            <option value="England">England</option>
+            <option value="France">France</option>
+            <option value="France/Belgium">France/Belgium</option>
+            <option value="Germany">Germany</option>
+            <option value="Greece">Greece</option>
+            <option value="Iceland">Iceland</option>
+            <option value="India">India</option>
+            <option value="India/Iran/Iraq/Egypt/Tajikistan">India/Iran/Iraq/Egypt/Tajikistan</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Irish Free State">Irish Free State</option>
+            <option value="Italy">Italy</option>
+            <option value="Japan">Japan</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Nigeria">Nigeria</option>
+            <option value="Norway">Norway</option>
+            <option value="Persia, Persian Empire">Persia, Persian Empire</option>
+            <option value="Portugal">Portugal</option>
+            <option value="Republic of Ireland">Republic of Ireland</option>
+            <option value="Roman Empire">Roman Empire</option>
+            <option value="Romania, France">Romania, France</option>
+            <option value="Russia">Russia</option>
+            <option value="Russia/United States">Russia/United States</option>
+            <option value="Saxe-Weimar">Saxe-Weimar</option>
+            <option value="Spain">Spain</option>
+            <option value="Sudan">Sudan</option>
+            <option value="Sultanate of Rum">Sultanate of Rum</option>
+            <option value="Sumer and Akkadian Empire">Sumer and Akkadian Empire</option>
+            <option value="Sweden">Sweden</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="United Kingdom, India">United Kingdom, India</option>
+            <option value="United States">United States</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-3 order-4 order-md-3 p-0 pe-md-2 flex-shrink-0">
+        <div class="input-group">
+          <span class="input-group-text">Year</span>
+          <input type="number" min="-1700" max="2021" class="year1 form-control" placeholder="From.." name="from_year"
+            aria-label="Starting year">
+          <input type="number" min="-1700" max="2021" class="year2 form-control" placeholder="To.." name="to_year"
+            aria-label="Ending year">
+        </div>
+      </div>
+
+      <div class="col-3 col-md-2 order-2 order-md-4 d-flex justify-content-end px-0">
+        <button class="getResult btn btn-primary text-white text-truncate flex-grow-1" type="submit" title="Get results">Get
+          results</button>
+      </div>
+    </form>
+
+    <div class="books row">
+
+
+      <!-- <div class="books__item col-md-6 col-lg-4 mb-3"> -->
+        <!-- <div class="book card h-100">
+          <img class="book__poster card-img-top" src="posters/things-fall-apart.jpg" alt="Poster of Things Fall Apart">
+          <div class="card-body d-flex flex-column">
+            <h3 class="book__title card-title mb-1 text-truncate">Things Fall Apart</h3>
+            <h4 class="book__author h6 card-subtitle text-muted mb-3">Chinua Achebe</h4>
+
+            <ul class="book__info-list list-unstyled">
+              <li class="book__info-item book__info-year d-flex mb-1">1958</li>
+              <li class="book__info-item book__info-language d-flex mb-1">English</li>
+              <li class="book__info-item book__info-country d-flex mb-1">Nigeria</li>
+              <li class="book__info-item book__info-pages d-flex mb-1">209</li>
+            </ul>
+
+            <div class="book__bottom d-flex flex-wrap gap-2">
+              <a class="book__more-link btn btn-primary d-inline-flex align-items-center" target="_blank"
+                href="https://en.wikipedia.org/wiki/Things_Fall_Apart">
+                <img class="me-1" src="./img/icon-info.svg" alt="">
+                <span>More info</span>
+              </a>
+
+              <button class="book__add-library btn btn-primary d-inline-flex align-items-center" type="button"
+                data-unique-id="Things_Fall_Apart">
+                <img class="me-1" style="pointer-events: none;" src="./img/icon-bookmark-add.svg" width="24" height="24"
+                  alt="" aria-hidden="true">
+                <span style="pointer-events: none;">Add to library</span>
+              </button>
+            </div>
+          </div>
+        </div> -->
+      <!-- </div> -->
+
+
+
+    </div>
+
+    <nav aria-label="Books navigation">
+      <ul class="pagination justify-content-end">
+        <li class="page-item">
+          <button class="pagination__control pagination__control--prev page-link" aria-label="Previous"
+            data-page-count="-1">
+            <span aria-hidden="true">&laquo;</span>
+          </button>
+        </li>
+        <li class="page-item active">
+          <button class="pagination__link page-link">1</button>
+        </li>
+        <li class="page-item">
+          <button class="pagination__link page-link">2</button>
+        </li>
+        <li class="page-item">
+          <button class="pagination__link page-link">3</button>
+        </li>
+        <li class="page-item">
+          <button class="pagination__link page-link">4</button>
+        </li>
+        <li class="page-item">
+          <button class="pagination__link page-link">5</button>
+        </li>
+        <li class="page-item">
+          <button class="pagination__control pagination__control--next page-link" aria-label="Next" data-page-count="1">
+            <span aria-hidden="true">&raquo;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- LIBRARY-MODAL -->
+
+  <div class="library-modal modal fade" id="libraryModal" tabindex="-1" aria-labelledby="libraryModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="libraryModalLabel">Library</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="library-modal__list list-group"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="cardBtn btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="./js/books.js"></script>
+  <!-- <script src="./js/index.js"></script> -->
+</body>
+
+</html>
